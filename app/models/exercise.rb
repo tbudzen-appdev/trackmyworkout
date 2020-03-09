@@ -16,6 +16,4 @@ belongs_to :user
 has_one :cardio, :foreign_key => "ex_id", :dependent => :destroy
 has_one :weight, :foreign_key => "ex_id", :dependent => :destroy
 
-
-
 end

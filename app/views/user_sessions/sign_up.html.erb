@@ -1,5 +1,5 @@
-<h1>Sign up</h1>
-
+<center> <h2>Sign up for Track My Workout!</h2> </center>
+<center>
 <form action="/insert_user" method="post">
 
   <div>
@@ -8,21 +8,35 @@
   </div>
                  
   <div>
-    <label for="d_o_b_box">D o b</label>
-      
-    <input type="text" id="d_o_b_box" name="query_d_o_b">
+    <label for="dob_box">Birth Date</label>
+    <input type="date" id="dob_box" name="query_dob">
   </div>
          
   <div>
     <label for="height_ft_box">Height ft</label>
-      
-    <input type="text" id="height_ft_box" name="query_height_ft">
-  </div>
-         
-  <div>
-    <label for="height_in_box">Height in</label>
-      
-    <input type="text" id="height_in_box" name="query_height_in">
+    <select id="height_ft_box" name="query_height_ft">
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    </select>
+    <label for="height_in_box">in</label>
+  <select id="height_in_box" name="query_height_in">
+    <option>0</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    <option>9</option>
+    <option>10</option>
+    <option>11</option>
+  </select>
   </div>
     
   <div>
@@ -39,7 +53,7 @@
     Sign up
   </button>
 </form>
-
+</center>
 <hr>
 
 <p>

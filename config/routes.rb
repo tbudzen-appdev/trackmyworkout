@@ -83,6 +83,14 @@ Rails.application.routes.draw do
   get("/user_sign_out", { :controller => "user_sessions", :action => "destroy_cookies" })
              
   #------------------------------
+  # HOME PAGE
+  get("/", { :controller => "application", :action => "home_page" })
+   get("/about", { :controller => "application", :action => "home_page" })
+
+
+
+
+
 
   # ======= Add Your Routes Above These =============
   devise_for :admin_users, ActiveAdmin::Devise.config

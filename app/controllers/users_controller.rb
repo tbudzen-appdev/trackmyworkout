@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user.email = params.fetch("query_email")
     @user.password = params.fetch("query_password")
     @user.password_confirmation = params.fetch("query_password_confirmation")
-    @user.d_o_b = params.fetch("query_d_o_b")
+    @user.d_o_b = params.fetch("query_dob")
     @user.height_ft = params.fetch("query_height_ft")
     @user.height_in = params.fetch("query_height_in")
 
