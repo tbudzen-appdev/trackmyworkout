@@ -1,0 +1,131 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Weight #<%= @weight.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/weights" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_weight/<%= @weight.id %>" class="btn btn-block btn-outline-secondary">
+          Delete weight
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Lift
+      </dt>
+      <dd>
+        <%= @weight.lift %>
+      </dd>
+
+      <dt>
+        Sets
+      </dt>
+      <dd>
+        <%= @weight.sets %>
+      </dd>
+
+      <dt>
+        Reps
+      </dt>
+      <dd>
+        <%= @weight.reps %>
+      </dd>
+
+      <dt>
+        Weight
+      </dt>
+      <dd>
+        <%= @weight.weight %>
+      </dd>
+
+      <dt>
+        Ex
+      </dt>
+      <dd>
+        <%= @weight.ex_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@weight.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@weight.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Edit weight
+    </h2>
+
+    <form action="/modify_weight/<%= @weight.id %>"  method="post" >
+      <div class="form-group">
+        <label for="lift_box">
+          Lift
+        </label>
+
+        <input type="text" id="lift_box" name="query_lift" class="form-control" value="<%= @weight.lift %>">
+      </div>
+
+      <div class="form-group">
+        <label for="sets_box">
+          Sets
+        </label>
+
+        <input type="text" id="sets_box" name="query_sets" class="form-control" value="<%= @weight.sets %>">
+      </div>
+
+      <div class="form-group">
+        <label for="reps_box">
+          Reps
+        </label>
+
+        <input type="text" id="reps_box" name="query_reps" class="form-control" value="<%= @weight.reps %>">
+      </div>
+
+      <div class="form-group">
+        <label for="weight_box">
+          Weight
+        </label>
+
+        <input type="text" id="weight_box" name="query_weight" class="form-control" value="<%= @weight.weight %>">
+      </div>
+
+      <div class="form-group">
+        <label for="ex_id_box">
+          Ex
+        </label>
+
+        <input type="text" id="ex_id_box" name="query_ex_id" class="form-control" value="<%= @weight.ex_id %>">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Update weight
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

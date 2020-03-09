@@ -1,0 +1,101 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Cardio #<%= @cardio.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/cardios" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_cardio/<%= @cardio.id %>" class="btn btn-block btn-outline-secondary">
+          Delete cardio
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Cardio type
+      </dt>
+      <dd>
+        <%= @cardio.cardio_type %>
+      </dd>
+
+      <dt>
+        Time
+      </dt>
+      <dd>
+        <%= @cardio.time %>
+      </dd>
+
+      <dt>
+        Ex
+      </dt>
+      <dd>
+        <%= @cardio.ex_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@cardio.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@cardio.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Edit cardio
+    </h2>
+
+    <form action="/modify_cardio/<%= @cardio.id %>"  method="post" >
+      <div class="form-group">
+        <label for="cardio_type_box">
+          Cardio type
+        </label>
+
+        <input type="text" id="cardio_type_box" name="query_cardio_type" class="form-control" value="<%= @cardio.cardio_type %>">
+      </div>
+
+      <div class="form-group">
+        <label for="time_box">
+          Time
+        </label>
+
+        <input type="time" id="time_box" name="query_time" class="form-control" value="<%= @cardio.time %>">
+      </div>
+
+      <div class="form-group">
+        <label for="ex_id_box">
+          Ex
+        </label>
+
+        <input type="text" id="ex_id_box" name="query_ex_id" class="form-control" value="<%= @cardio.ex_id %>">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Update cardio
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

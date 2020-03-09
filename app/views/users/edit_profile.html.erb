@@ -1,0 +1,40 @@
+<div >
+  <h5>
+    Edit User Account
+  </h5>
+
+  <div>
+    <form action="/modify_user" method="post">
+      <div>
+        <label for="email_box">Email</label>
+        <input id="email_box" name="query_email" value="<%= @current_user.email %>">
+      </div>
+      <div>
+        <label for="d_o_b_box">D o b</label>
+        <input id="d_o_b_box" name="query_d_o_b" value="<%= @current_user.d_o_b %>">
+      </div>
+      <div>
+        <label for="height_ft_box">Height ft</label>
+        <input id="height_ft_box" name="query_height_ft" value="<%= @current_user.height_ft %>">
+      </div>
+      <div>
+        <label for="height_in_box">Height in</label>
+        <input id="height_in_box" name="query_height_in" value="<%= @current_user.height_in %>">
+      </div>
+
+      <div>
+        <label for="password_box">Password</label>
+        <input id="password_box" name="query_password" placeholder="Choose a password..." type="password">
+      </div>
+    
+      <div>
+        <label for="password_confirmation_box">Password Confirmation</label>
+        <input id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your password..." type="password">
+      </div>
+
+      <button>
+        Update account
+      </button>
+    </form>
+  </div>
+</div>
