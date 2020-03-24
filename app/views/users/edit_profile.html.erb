@@ -19,18 +19,35 @@
       </tr>
       <tr>
         <td>
-          <%= @maxbench  %>
+          <%if  @maxbench == nil %>
+          0
+          <%else %> 
+          <%= @maxbench.weight%>
+          <%end%>
+    
         </td>
 
         <td>
-          <%= @maxsquat%>
+          <%if  @maxsquat == nil %>
+          0
+          <%else %> 
+          <%= @maxsquat.weight%>
+          <%end%>
         </td>
 
         <td>
-          <%= @maxdeadlift %>
+          <%if  @maxdeadlift == nil %>
+          0
+          <%else %> 
+          <%=@maxdeadlift.weight%>
+          <%end%>
         </td>
         <td>
-        <%= @maxbench + @maxsquat + @maxdeadlift%>
+        <%if @maxbench and @maxsquat and @maxdeadlift != nil%>
+        <%= @maxbench + @maxsquat + @maxdeadlift %>
+        <%else%>
+        Total unavailable
+        <%end%>
         </td>
       </tr>
     </table>

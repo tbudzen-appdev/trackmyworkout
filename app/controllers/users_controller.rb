@@ -27,9 +27,9 @@ class UsersController < ApplicationController
     
   def my_profile
     @user_exercises = Exercise.where({:user_id => session.fetch(:user_id)}).pluck(:id)
-    @maxbench = Weight.where({:ex_id => @user_exercises}).where({:lift => "Bench Press"}).order({:weight => :desc}).first.weight
-    @maxsquat = Weight.where({:ex_id => @user_exercises}).where({:lift => "Squat"}).order({:weight => :desc}).first.weight
-    @maxdeadlift = Weight.where({:ex_id => @user_exercises}).where({:lift => "Deadlift"}).order({:weight => :desc}).first.weight
+    @maxbench = Weight.where({:ex_id => @user_exercises}).where({:lift => "Bench Press"}).order({:weight => :desc}).first
+    @maxsquat = Weight.where({:ex_id => @user_exercises}).where({:lift => "Squat"}).order({:weight => :desc}).first
+    @maxdeadlift = Weight.where({:ex_id => @user_exercises}).where({:lift => "Deadlift"}).order({:weight => :desc}).first
     render({ :template => "users/edit_profile.html.erb" })
   end
 
