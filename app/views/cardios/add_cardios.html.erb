@@ -1,0 +1,83 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+<h3> Workout Date </h3>
+<h4> <%=Exercise.where({:id => @last_ex_id}).last.date%> </h4>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          Cardio type
+        </th>
+
+        <th>
+          Distance
+        </th>
+
+        <th>
+          Time
+        </th>
+      </tr>
+
+      <% @cardios.each do |cardio| %>
+      <tr>
+        <td>
+          <%= cardio.cardio_type %>
+        </td>
+
+        <td>
+          <%= cardio.distance %>
+        </td>
+
+        <td>
+          <%=cardio.time.to_s(:time)%>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new cardio
+    </h2>
+
+    <form action="/insert_cardio" method="post">
+      <div class="form-group">
+        <label for="cardio_box">
+          Cardio type
+        </label>
+
+        <input type="text" id="cardio_box" name="query_cardio" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="distance_box">
+          Distance in meters
+        </label>
+
+        <input type="text" id="distance_box" name="query_distance" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="reps_box">
+          Time
+        </label>
+        <input type="time" id="time_box" name="query_time" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="hidden" id="ex_id_box" name="query_ex_id" class="form-control" value="<%=@last_ex_id%>">
+      </div>
+      <button class="btn btn-block btn-primary">
+        Add cardio
+      </button>
+    </form>
+  </div>
+</div>
+

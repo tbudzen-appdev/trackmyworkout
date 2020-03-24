@@ -1,0 +1,104 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+<h3> Workout Date </h3>
+<h4> <%=Exercise.where({:id => @last_ex_id}).last.date%> </h4>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          Lift
+        </th>
+
+        <th>
+          Sets
+        </th>
+
+        <th>
+          Reps
+        </th>
+
+        <th>
+          Weight in lbs
+        </th>
+      </tr>
+
+      <% @weights.each do |weight| %>
+      <tr>
+        <td>
+          <%= weight.lift %>
+        </td>
+
+        <td>
+          <%= weight.sets %>
+        </td>
+
+        <td>
+          <%= weight.reps %>
+        </td>
+
+        <td>
+          <%= weight.weight %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new lift
+    </h2>
+
+    <form action="/insert_weight" method="post">
+      <div class="form-group">
+        <label for="lift_box">
+          Lift
+        </label>
+
+        <input type="text" id="lift_box" name="query_lift" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="sets_box">
+          Sets
+        </label>
+
+        <input type="text" id="sets_box" name="query_sets" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="reps_box">
+          Reps
+        </label>
+
+        <input type="text" id="reps_box" name="query_reps" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="weight_box">
+          Weight in lbs
+        </label>
+
+        <input type="text" id="weight_box" name="query_weight" class="form-control">
+      </div>
+
+      <div class="form-group">
+
+        <input type="hidden" id="ex_id_box" name="query_ex_id" class="form-control" value="<%=@last_ex_id%>">
+      </div>
+
+      <button class="btn btn-block btn-primary">
+        Add lift
+      </button>
+    </form>
+  </div>
+</div>
+

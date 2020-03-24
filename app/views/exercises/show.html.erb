@@ -1,69 +1,108 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Exercise #<%= @exercise.id %> details
+      Workout on <%= @exercise.date %>
     </h1>
-
-    <div class="row mb-3">
-      <div class="col">
-        <a href="/exercises" class="btn btn-block btn-outline-secondary">
-          Go back
-        </a>
-      </div>
-
-      <div class="col">
-        <a href="/delete_exercise/<%= @exercise.id %>" class="btn btn-block btn-outline-secondary">
-          Delete exercise
-        </a>
-      </div>
-    </div>
-
     <dl>
       <dt>
-        Date
+        Workout type
       </dt>
       <dd>
-        <%= @exercise.date %>
-      </dd>
-
-      <dt>
-        Ex type
-      </dt>
-      <dd>
-        <%= @exercise.ex_type %>
-      </dd>
-
-      <dt>
-        User
-      </dt>
-      <dd>
-        <%= @exercise.user_id %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@exercise.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@exercise.updated_at) %> ago
+      <%= @exercise.ex_type %>
       </dd>
     </dl>
   </div>
 </div>
+<%if @exercise.ex_type == "Weights" %>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          Lift
+        </th>
 
-<hr>
+        <th>
+          Sets
+        </th>
+
+        <th>
+          Reps
+        </th>
+
+        <th>
+          Weight in lbs
+        </th>
+      </tr>
+
+      <% @weights.each do |weight| %>
+      <tr>
+        <td>
+          <%= weight.lift %>
+        </td>
+
+        <td>
+          <%= weight.sets %>
+        </td>
+
+        <td>
+          <%= weight.reps %>
+        </td>
+
+        <td>
+          <%= weight.weight %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+<%else%>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          Cardio type
+        </th>
+
+        <th>
+          Distance
+        </th>
+
+        <th>
+          Time
+        </th>
+      </tr>
+
+      <% @cardios.each do |cardio| %>
+      <tr>
+        <td>
+          <%= cardio.cardio_type %>
+        </td>
+
+        <td>
+          <%= cardio.distance %>
+        </td>
+
+        <td>
+          <%=cardio.time.to_s(:time)%>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+<%end%>
+
+
+
 
 
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h2>
-      Edit exercise
+      Edit workout information
     </h2>
 
     <form action="/modify_exercise/<%= @exercise.id %>"  method="post" >
@@ -75,27 +114,32 @@
         <input type="date" id="date_box" name="query_date" class="form-control" value="<%= @exercise.date %>">
       </div>
 
-      <div class="form-group">
+         <div class="form-group">
         <label for="ex_type_box">
-          Ex type
+          Workout type
         </label>
-
-        <input type="text" id="ex_type_box" name="query_ex_type" class="form-control" value="<%= @exercise.ex_type %>">
+        <select id="ex_type_box" name="query_ex_type" value="<%@exercise.ex_type%>">
+    <option>Weights</option>
+    <option>Cardio</option>
+    </select>
       </div>
-
-      <div class="form-group">
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id" class="form-control" value="<%= @exercise.user_id %>">
-      </div>
-
-      <button class="btn btn-block btn-outline-secondary">
-        Update exercise
+      <button class="btn btn-block btn-primary">
+        Update workout information
       </button>
     </form>
   </div>
 </div>
 
 <hr>
+
+    <div>
+      <div class="col">
+        <a href="/my_workouts" class="btn">
+          Go back
+        </a>
+        <a href="/delete_exercise/<%= @exercise.id %>" class="btn">
+        <font color= "red">  Delete workout </font>
+        </a>
+      </div>
+    </div>
+

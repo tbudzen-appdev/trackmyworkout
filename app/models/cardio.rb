@@ -4,6 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  cardio_type :string
+#  distance    :integer
 #  time        :time
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

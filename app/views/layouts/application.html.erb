@@ -23,10 +23,13 @@
   <body>
 
 <% if session.fetch(:user_id) != nil%>
-
+<nav class="navbar navbar-light" style="background-color: #9EDBFF;">
 <ul class="nav nav-pills nav-fill">
+ <li class="nav-item">
+    <a class="navbar-brand" style="color: #132BFF;" href="/">Track My Workout</a>
+  </li>
   <li class="nav-item">
-    <a class="nav-link active" href="/">My Profile</a>
+    <a class="nav-link active" href="/my_profile">My Profile</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="/my_workouts">My Workouts</a>
@@ -35,15 +38,13 @@
     <a class="nav-link" href="/user_sign_out">Sign out</a>
   </li>
 </ul>
+</nav>
 
 <%else %>
-<nav class="navbar navbar-light" style="background-color: #A5E7EB;">
+<nav class="navbar navbar-light" style="background-color: #9EDBFF;">
 <ul class="nav nav-pills nav-fill">
  <li class="nav-item">
     <a class="navbar-brand" style="color: #132BFF;">Track My Workout</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="/about">About</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="/user_sign_in">Sign in</a>
@@ -59,6 +60,6 @@
 
 
 
-    <%= yield %>
+<%= yield %>
   </body>
 </html>

@@ -1,14 +1,14 @@
 class ExercisesController < ApplicationController
   def index
-    @exercises = Exercise.all.order({ :created_at => :desc })
-
+    @exercises = Exercise.all.order({ :date => :desc })
     render({ :template => "exercises/index.html.erb" })
   end
 
   def show
     the_id = params.fetch("path_id")
     @exercise = Exercise.where({:id => the_id }).at(0)
-
+    @weights = Weight.where(:ex_id => the_id)
+    @cardios = Cardio.where(:ex_id => the_id)
     render({ :template => "exercises/show.html.erb" })
   end
 
@@ -16,11 +16,15 @@ class ExercisesController < ApplicationController
     @exercise = Exercise.new
     @exercise.date = params.fetch("query_date")
     @exercise.ex_type = params.fetch("query_ex_type")
-    @exercise.user_id = params.fetch("query_user_id")
+    @exercise.user_id = @current_user.id
 
     if @exercise.valid?
-      @exercise.save
-      redirect_to("/exercises", { :notice => "Exercise created successfully." })
+    @exercise.save
+    if params.fetch("query_ex_type") == "Weights"
+      redirect_to("/add_weights", { :notice => "Exercise created successfully." })
+    else 
+      redirect_to("/add_cardio", {:notice => "Exercise created successfully."})
+    end
     else
       redirect_to("/exercises", { :notice => "Exercise failed to create successfully." })
     end
@@ -32,7 +36,7 @@ class ExercisesController < ApplicationController
 
     @exercise.date = params.fetch("query_date")
     @exercise.ex_type = params.fetch("query_ex_type")
-    @exercise.user_id = params.fetch("query_user_id")
+    @exercise.user_id = @current_user.id
 
     if @exercise.valid?
       @exercise.save
@@ -48,6 +52,6 @@ class ExercisesController < ApplicationController
 
     @exercise.destroy
 
-    redirect_to("/exercises", { :notice => "Exercise deleted successfully."} )
+    redirect_to("/my_workouts", { :notice => "Exercise deleted successfully."} )
   end
 end

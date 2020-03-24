@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post("/insert_cardio", { :controller => "cardios", :action => "create" })
           
   # READ
+  get("/add_cardio", {:controller => "cardios", :action => "add_cardio"})
   get("/cardios", { :controller => "cardios", :action => "index" })
   
   get("/cardios/:path_id", { :controller => "cardios", :action => "show" })
@@ -25,8 +26,8 @@ Rails.application.routes.draw do
   post("/insert_weight", { :controller => "weights", :action => "create" })
           
   # READ
-  get("/weights", { :controller => "weights", :action => "index" })
-  
+  get("/add_weights", { :controller => "weights", :action => "add_weights" })
+   get("/weights", { :controller => "weights", :action => "index" })
   get("/weights/:path_id", { :controller => "weights", :action => "show" })
   
   # UPDATE
@@ -44,9 +45,9 @@ Rails.application.routes.draw do
   post("/insert_exercise", { :controller => "exercises", :action => "create" })
           
   # READ
-  get("/exercises", { :controller => "exercises", :action => "index" })
+  get("/my_workouts", { :controller => "exercises", :action => "index" })
   
-  get("/exercises/:path_id", { :controller => "exercises", :action => "show" })
+  get("/my_workouts/:path_id", { :controller => "exercises", :action => "show" })
   
   # UPDATE
   
@@ -65,7 +66,7 @@ Rails.application.routes.draw do
   post("/insert_user", { :controller => "users", :action => "create"  })
       
   # EDIT PROFILE FORM        
-  get("/edit_user_profile", { :controller => "users", :action => "edit_registration_form" })       
+  get("/my_profile", { :controller => "users", :action => "my_profile" })       
   # UPDATE RECORD
   post("/modify_user", { :controller => "users", :action => "update" })
   

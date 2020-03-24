@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-12">
     <h1>
-      List of all weights
+      List of lifts
     </h1>
   </div>
 </div>
@@ -11,7 +11,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h2>
-      Add a new weight
+      Add a new lift
     </h2>
 
     <form action="/insert_weight" method="post">
@@ -41,18 +41,15 @@
 
       <div class="form-group">
         <label for="weight_box">
-          Weight
+          Weight in lbs
         </label>
 
         <input type="text" id="weight_box" name="query_weight" class="form-control">
       </div>
 
       <div class="form-group">
-        <label for="ex_id_box">
-          Ex
-        </label>
 
-        <input type="text" id="ex_id_box" name="query_ex_id" class="form-control">
+        <input type="hidden" id="ex_id_box" name="query_ex_id" class="form-control" value="<%=@last_ex_id%>">
       </div>
 
       <button class="btn btn-block btn-outline-secondary">

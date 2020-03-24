@@ -1,9 +1,19 @@
 class WeightsController < ApplicationController
   def index
+    the_id = session.fetch(:user_id)
+    @last_ex_id = Exercise.where({:user_id => the_id}).last.id
     @weights = Weight.all.order({ :created_at => :desc })
-
     render({ :template => "weights/index.html.erb" })
   end
+
+  def add_weights
+  the_id = session.fetch(:user_id)
+  @last_ex_id = Exercise.where({:user_id => the_id}).last.id
+  @weights = Weight.where({:ex_id => @last_ex_id}).order({:created_at => :desc })
+  render({ :template => "weights/add_weights.html.erb" })
+  end
+
+
 
   def show
     the_id = params.fetch("path_id")
@@ -11,6 +21,8 @@ class WeightsController < ApplicationController
 
     render({ :template => "weights/show.html.erb" })
   end
+
+
 
   def create
     @weight = Weight.new
@@ -22,9 +34,9 @@ class WeightsController < ApplicationController
 
     if @weight.valid?
       @weight.save
-      redirect_to("/weights", { :notice => "Weight created successfully." })
+      redirect_to("/add_weights", { :notice => "Weight created successfully." })
     else
-      redirect_to("/weights", { :notice => "Weight failed to create successfully." })
+      redirect_to("/add_weights", { :notice => "Weight failed to create successfully." })
     end
   end
 
