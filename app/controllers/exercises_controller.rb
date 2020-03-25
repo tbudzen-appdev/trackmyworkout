@@ -1,7 +1,18 @@
 class ExercisesController < ApplicationController
   def index
-    @exercises = Exercise.all.order({ :date => :desc })
-    render({ :template => "exercises/index.html.erb" })
+  @exercises = Exercise.where({:user_id => @current_user.id}).all.order({ :date => :desc })
+  render({ :template => "exercises/index.html.erb" })
+  end
+
+
+  def index_cardio
+  @exercises = Exercise.where({:user_id => @current_user.id}).where({:ex_type => "Cardio"}).all.order({ :date => :desc })
+  render({ :template => "exercises/index.html.erb" })
+  end
+
+  def index_weights
+  @exercises = Exercise.where({:user_id => @current_user.id}).where({:ex_type => "Weights"}).all.order({ :date => :desc })
+  render({ :template => "exercises/index.html.erb" })
   end
 
   def show

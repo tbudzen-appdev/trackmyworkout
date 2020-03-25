@@ -46,6 +46,10 @@ Rails.application.routes.draw do
           
   # READ
   get("/my_workouts", { :controller => "exercises", :action => "index" })
+
+  get("/my_workouts_cardio", { :controller => "exercises", :action => "index_cardio" })
+
+    get("/my_workouts_weights", { :controller => "exercises", :action => "index_weights" })
   
   get("/my_workouts/:path_id", { :controller => "exercises", :action => "show" })
   

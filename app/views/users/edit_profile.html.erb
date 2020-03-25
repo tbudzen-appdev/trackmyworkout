@@ -1,8 +1,6 @@
 <hr>
 <h2>You have worked out <%=Exercise.where({:user_id => session.fetch(:user_id)}).where("date >= ?", 30.days.ago).count%> times in the last 30 days!</h2>
 <hr>
-
-
 <div>
 <h2>Lift Maxes</h2>
 <div class="row mb-3">
@@ -49,7 +47,7 @@
         </td>
         <td>
         <%if @maxbench and @maxsquat and @maxdeadlift != nil%>
-        <%= @maxbench + @maxsquat + @maxdeadlift %>
+        <%= @maxbench.weight + @maxsquat.weight + @maxdeadlift.weight %>
         <%else%>
         Total unavailable
         <%end%>
