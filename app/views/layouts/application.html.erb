@@ -55,9 +55,14 @@
 </ul>
 </nav>
 <%end%>
-
-
-
+<%if notice != nil%>
+<p id="notice" class="alert alert-success"><%= notice %></p>
+<%else%>
+<%end%>
+<%if alert != nil%>
+<p id="alert" class="alert alert-danger"><%= alert %></p>
+<%else%>
+<%end%>
 <%= yield %>
 </body>
 </html>

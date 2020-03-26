@@ -57,16 +57,37 @@
   </div>
 </div>
 
-<hr>
+
 <%if @current_user.weight != nil%>
+<hr>
 <div>
-<h2>BMI</h2>
+<h2>Body Mass Index (BMI)</h2>
 </div>
 <div>
 <h4> <%=((703 * @current_user.weight).to_f/(((12*@current_user.height_ft)+@current_user.height_in)*((12*@current_user.height_ft)+@current_user.height_in)).to_f).round(2) %></h4>
 </div>
 <%else%>
 <%end%>
+
+<%if @current_user.weight != nil%>
+<hr>
+<div>
+<h2>Basal Metabolic Rate (BMR)</h2>
+<div>
+<h5>BMR provides an estimate of how many calories your body burns if it were asleep all day. <div> It can be a useful guideline when attempting to gain or lose weight, as you should consume more or less calories than your BMR depending on the goal. </div> </h5>
+</div>
+</div>
+<div>
+<%if @current_user.sex == "Male"%>
+<h4> <%= (4.536 * @current_user.weight) + (15.88 * 12 * @current_user.height_ft + @current_user.height_in) - (5 * (Date.today.year - @current_user.d_o_b.year)) +5  %> </h4>
+</div>
+<%else%>
+<h4> <%= (4.536 * @current_user.weight) + (15.88 * 12 * @current_user.height_ft + @current_user.height_in) - (5 * (Date.today.year - @current_user.d_o_b.year)) - 161  %> </h4>
+<%end%>
+<%else%>
+<%end%>
+
+
 
 
 <hr>
@@ -114,3 +135,5 @@
     </form>
   </div>
 </div>
+
+
