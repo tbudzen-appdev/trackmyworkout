@@ -58,12 +58,15 @@
 </div>
 
 <hr>
+<%if @current_user.weight != nil%>
 <div>
 <h2>BMI</h2>
 </div>
 <div>
 <h4> <%=((703 * @current_user.weight).to_f/(((12*@current_user.height_ft)+@current_user.height_in)*((12*@current_user.height_ft)+@current_user.height_in)).to_f).round(2) %></h4>
 </div>
+<%else%>
+<%end%>
 
 
 <hr>

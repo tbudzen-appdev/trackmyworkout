@@ -17,6 +17,10 @@
 class User < ApplicationRecord
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, :presence => true
+  validates :height_ft, :presence => true
+  validates :sex, :presence => true
+  validates :weight, :presence => true
+  validates :d_o_b, :presence => true 
   has_secure_password
 
   has_many :exercises, :dependent => :destroy 
