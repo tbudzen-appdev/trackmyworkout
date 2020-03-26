@@ -8,6 +8,8 @@
 #  height_ft       :integer          default(0)
 #  height_in       :integer          default(0)
 #  password_digest :string
+#  sex             :string
+#  weight          :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #

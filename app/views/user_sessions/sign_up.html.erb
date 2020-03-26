@@ -14,7 +14,7 @@
          
   <div>
     <label for="height_ft_box">Height ft</label>
-    <select id="height_ft_box" name="query_height_ft">
+    <select type= "integer" id="height_ft_box" name="query_height_ft">
     <option>3</option>
     <option>4</option>
     <option>5</option>
@@ -23,7 +23,7 @@
     <option>8</option>
     </select>
     <label for="height_in_box">in</label>
-  <select id="height_in_box" name="query_height_in">
+  <select type= "integer" id="height_in_box" name="query_height_in">
     <option>0</option>
     <option>1</option>
     <option>2</option>
@@ -38,7 +38,20 @@
     <option>11</option>
   </select>
   </div>
-    
+  <div>
+    <label for="weight_box">Weight in lbs</label>
+    <input type="date" id="weight_box" name="query_weight">
+  </div>
+<div>
+ <label for="sex_box">Sex</label>
+<select type= "string" id="sex_box" name="query_sex">
+    <option>Male</option>
+    <option>Female</option>
+</select>
+</div>
+
+
+
   <div>
     <label for="password_box">Password</label>
     <input id="password_box" name="query_password" placeholder="Choose a password..." type="password">

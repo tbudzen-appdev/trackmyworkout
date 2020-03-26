@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_201211) do
+ActiveRecord::Schema.define(version: 2020_03_26_191028) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 2020_03_24_201211) do
     t.integer "height_in", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "weight"
+    t.string "sex"
   end
 
   create_table "weights", force: :cascade do |t|

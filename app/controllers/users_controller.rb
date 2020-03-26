@@ -13,13 +13,14 @@ class UsersController < ApplicationController
     @user.d_o_b = params.fetch("query_dob")
     @user.height_ft = params.fetch("query_height_ft")
     @user.height_in = params.fetch("query_height_in")
-
+    @user.sex = params.fetch("query_sex")
+    @user.weight = params.fetch("query_weight")
     save_status = @user.save
 
     if save_status == true
       session.store(:user_id,  @user.id)
    
-      redirect_to("/", { :notice => "User account created successfully."})
+      redirect_to("/my_workouts", { :notice => "User account created successfully."})
     else
       redirect_to("/user_sign_up", { :alert => "User account failed to create successfully."})
     end
@@ -41,11 +42,13 @@ class UsersController < ApplicationController
     @user.d_o_b = params.fetch("query_d_o_b")
     @user.height_ft = params.fetch("query_height_ft")
     @user.height_in = params.fetch("query_height_in")
-    
+    @user.sex = params.fetch("query_sex")
+    @user.weight= params.fetch("query_weight")
+
     if @user.valid?
       @user.save
 
-      redirect_to("/", { :notice => "User account updated successfully."})
+      redirect_to("/my_profile", { :notice => "User account updated successfully."})
     else
       render({ :template => "users/edit_profile_with_errors.html.erb" })
     end
