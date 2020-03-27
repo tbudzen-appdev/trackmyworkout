@@ -34,9 +34,9 @@ class WeightsController < ApplicationController
 
     if @weight.valid?
       @weight.save
-      redirect_to("/add_weights", { :notice => "Weight created successfully." })
+      redirect_to("/add_weights", { :notice => "Lift added successfully." })
     else
-      redirect_to("/add_weights", { :notice => "Weight failed to create successfully." })
+      redirect_to("/add_weights", { :notice => "Lift failed to add successfully." })
     end
   end
 

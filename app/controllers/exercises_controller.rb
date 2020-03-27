@@ -32,12 +32,12 @@ class ExercisesController < ApplicationController
     if @exercise.valid?
     @exercise.save
     if params.fetch("query_ex_type") == "Weights"
-      redirect_to("/add_weights", { :notice => "Exercise created successfully." })
+      redirect_to("/add_weights", { :notice => "Workout created successfully. Add lifts to this workout on this page." })
     else 
-      redirect_to("/add_cardio", {:notice => "Exercise created successfully."})
+      redirect_to("/add_cardio", {:notice => "Workout created successfully. Add cardio to this workout on this page. "})
     end
     else
-      redirect_to("/exercises", { :notice => "Exercise failed to create successfully." })
+      redirect_to("/exercises", { :notice => "Workout failed to create successfully." })
     end
   end
 
@@ -51,9 +51,9 @@ class ExercisesController < ApplicationController
 
     if @exercise.valid?
       @exercise.save
-      redirect_to("/exercises/#{@exercise.id}", { :notice => "Exercise updated successfully."} )
+      redirect_to("/exercises/#{@exercise.id}", { :notice => "Workout updated successfully."} )
     else
-      redirect_to("/exercises/#{@exercise.id}", { :alert => "Exercise failed to update successfully." })
+      redirect_to("/exercises/#{@exercise.id}", { :alert => "Workout failed to update successfully." })
     end
   end
 
@@ -63,6 +63,6 @@ class ExercisesController < ApplicationController
 
     @exercise.destroy
 
-    redirect_to("/my_workouts", { :notice => "Exercise deleted successfully."} )
+    redirect_to("/my_workouts", { :notice => "Workout deleted successfully."} )
   end
 end
